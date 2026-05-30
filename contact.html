@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consultation — Curated by Cerrae</title>
+  <meta name="description" content="Book a free 15-minute consultation with Cerrae, professional organizer in Charlotte, NC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">curated <span>by cerrae</span></a>
+      <button class="nav-toggle" aria-label="open menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="services.html">services</a></li>
+        <li><a href="portfolio.html">portfolio</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="contact.html" class="nav-cta active">book a consultation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">let's get started</p>
+      <h1>book a consultation</h1>
+      <p class="hero-sub">Your first call is completely free. We'll talk about your space, your goals, and find the right plan for you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-form-col">
+          <h2>send me a message</h2>
+          <p class="contact-sub">Fill this out and I'll get back to you within 24 hours.</p>
+
+          <!-- TO MAKE THIS FORM WORK:
+               Option 1 (easiest): Sign up at formspree.io, create a form, and replace
+               the action URL below with your Formspree form URL.
+               Change: action="#" to action="https://formspree.io/f/YOUR_FORM_ID"
+               Add: method="POST"
+
+               Option 2: Sign up at HoneyBook and embed their contact form here instead. -->
+
+          <form class="contact-form" action="#" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">first name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="your first name" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="your last name" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">email address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">phone number (optional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="(704) 555-0100" />
+            </div>
+            <div class="form-group">
+              <label for="service">what service are you interested in?</label>
+              <select id="service" name="service">
+                <option value="">select a service</option>
+                <option value="home">home organization</option>
+                <option value="office">office & workspace</option>
+                <option value="movein">move-in setup</option>
+                <option value="maintenance">maintenance session</option>
+                <option value="notsure">not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">tell me about your space</label>
+              <textarea id="message" name="message" rows="5" placeholder="What area of your home needs the most help? What have you tried before? No detail is too small."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">send my message</button>
+          </form>
+        </div>
+
+        <div class="contact-info-col">
+          <div class="contact-info-card">
+            <h3>what to expect</h3>
+            <div class="expect-steps">
+              <div class="expect-step">
+                <div class="expect-num">1</div>
+                <p>You fill out the form or email me directly</p>
+              </div>
+              <div class="expect-step">
+                <div class="expect-num">2</div>
+                <p>I respond within 24 hours to schedule your free 15-min call</p>
+              </div>
+              <div class="expect-step">
+                <div class="expect-num">3</div>
+                <p>We chat about your space and I recommend the right package</p>
+              </div>
+              <div class="expect-step">
+                <div class="expect-num">4</div>
+                <p>We pick a date and I show up ready to transform your space</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <h3>reach me directly</h3>
+            <!-- EDIT: Replace with your actual contact info -->
+            <p class="contact-detail">📧 hello@curatedbycerrae.com</p>
+            <p class="contact-detail">📱 (704) 555-0000</p>
+            <p class="contact-detail">📍 Charlotte, NC & surrounding areas</p>
+          </div>
+
+          <div class="contact-info-card">
+            <h3>follow along</h3>
+            <p style="font-size: 14px; color: #5F5E5A; margin-bottom: 12px;">See before & afters, organizing tips, and behind-the-scenes on social.</p>
+            <!-- EDIT: Replace # with your actual social links -->
+            <div class="social-links">
+              <a href="#" class="social-link">Instagram @curatedbycerrae</a>
+              <a href="#" class="social-link">TikTok @curatedbycerrae</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-logo">curated by cerrae</p>
+      <ul class="footer-links">
+        <li><a href="services.html">services</a></li>
+        <li><a href="portfolio.html">portfolio</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="TikTok">tt</a>
+        <a href="#" aria-label="Pinterest">pt</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Curated by Cerrae · Charlotte, NC</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
