@@ -42,138 +42,6 @@
 
     /* nav styles handled by style.css */
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 80px;
-    }
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem;
-      position: relative;
-    }
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      right: 0; top: 10%; bottom: 10%;
-      width: 1px;
-      background: var(--sand);
-    }
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--taupe);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 2rem; height: 1px;
-      background: var(--gold);
-      display: block;
-    }
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--espresso);
-      margin-bottom: 1.8rem;
-    }
-    .hero-title em { font-style: italic; color: var(--walnut); }
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--walnut);
-      max-width: 420px;
-      margin-bottom: 2.8rem;
-      line-height: 1.8;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--espresso);
-      color: var(--cream);
-      padding: 0.85rem 2rem;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: var(--walnut); }
-    .btn-secondary {
-      color: var(--espresso);
-      padding: 0.85rem 2rem;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid var(--sand);
-      border-radius: 2px;
-      transition: border-color 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--espresso); }
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--linen);
-    }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--espresso);
-      display: block;
-    }
-    .stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--taupe);
-    }
-    .hero-right { position: relative; overflow: hidden; }
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .hero-img-label {
-      position: absolute;
-      bottom: 2.5rem; left: 2.5rem;
-      background: rgba(249,245,239,0.9);
-      backdrop-filter: blur(8px);
-      padding: 0.7rem 1rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--taupe);
-      border-left: 2px solid var(--gold);
-    }
-    .hero-badge {
-      position: absolute;
-      top: 1.2rem; right: 1.2rem;
-      background: var(--gold);
-      color: #fff;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      font-weight: 500;
-    }
-
     /* ── SECTION SHARED ── */
     .section-label {
       font-size: 0.7rem;
@@ -485,9 +353,7 @@
       nav { padding: 1.2rem 1.8rem; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 5rem 2rem 3rem; }
-      .hero-left::after { display: none; }
-      .hero-right { min-height: 320px; }
+
       .services, .ba-section, .process, .testimonial-band, .cta-section { padding: 5rem 2rem; }
       .services-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
