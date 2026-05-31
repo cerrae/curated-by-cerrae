@@ -3,214 +3,932 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curated by Cerrae — Professional Organizer · Charlotte, NC</title>
-  <meta name="description" content="Professional home and office organizing services in Charlotte, NC. Curated by Cerrae transforms cluttered spaces into calm, functional homes." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Closet transformation services in Charlotte, NC. Curated by Cerrae turns chaotic closets into calm, beautifully organized spaces you'll actually love." />
+  <title>Curated by Cerrae — Closet Transformations · Charlotte, NC</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F9F5EF;
+      --warm-white: #FDFAF6;
+      --linen: #EDE8DF;
+      --sand: #D6CABC;
+      --taupe: #A8957E;
+      --walnut: #6B5744;
+      --espresso: #2C1F14;
+      --sage: #8A9E8C;
+      --sage-light: #C8D5C9;
+      --gold: #B8935A;
+      --gold-light: #E8D5B0;
+
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--espresso);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(249,245,239,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--sand); }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--espresso);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--walnut);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--espresso); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--espresso);
+      color: var(--cream) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--walnut) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 4rem;
+      position: relative;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%; bottom: 10%;
+      width: 1px;
+      background: var(--sand);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--espresso);
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--walnut);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--walnut);
+      max-width: 420px;
+      margin-bottom: 2.8rem;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--espresso);
+      color: var(--cream);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--walnut); }
+
+    .btn-secondary {
+      color: var(--espresso);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--sand);
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--espresso); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--linen);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--espresso);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    .hero-right {
+      background: var(--linen);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Decorative closet illustration */
+    .closet-sketch {
+      width: 260px;
+      opacity: 0.25;
+    }
+
+    .hero-img-label {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      background: rgba(249,245,239,0.9);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      border-left: 2px solid var(--gold);
+    }
+
+    .photo-hint {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--taupe);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+    .photo-hint .icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 7rem 4rem;
+      background: var(--warm-white);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 1.5rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--espresso);
+      margin-bottom: 0.8rem;
+    }
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--taupe);
+      max-width: 480px;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--sand);
+      border: 1.5px solid var(--sand);
+    }
+
+    .service-card {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+    .service-card:hover { background: var(--cream); }
+    .service-card:hover::before { width: 100%; }
+
+    .service-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--walnut);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    .service-price {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* ── PROCESS ── */
+    .process {
+      padding: 7rem 4rem;
+      background: var(--espresso);
+      color: var(--cream);
+    }
+    .process .section-label { color: var(--gold); }
+    .process .section-label::before { background: var(--gold); }
+    .process .section-title { color: var(--cream); }
+    .process .section-sub { color: var(--sand); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 2.2rem;
+      left: 3rem;
+      right: 3rem;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .step {
+      padding: 0 2rem;
+      position: relative;
+    }
+    .step-num {
+      width: 4.5rem;
+      height: 4.5rem;
+      border: 1px solid rgba(184,147,90,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      background: var(--espresso);
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--sand);
+      line-height: 1.7;
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio {
+      padding: 7rem 4rem;
+      background: var(--cream);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .portfolio-item {
+      background: var(--linen);
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .portfolio-item.featured {
+      grid-column: span 2;
+      aspect-ratio: auto;
+      min-height: 340px;
+    }
+    .portfolio-item-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(249,245,239,0.92);
+      backdrop-filter: blur(6px);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--walnut);
+      padding: 0.45rem 0.8rem;
+      border-left: 2px solid var(--gold);
+    }
+    .portfolio-placeholder {
+      color: var(--taupe);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      line-height: 1.8;
+    }
+    .portfolio-placeholder .icon { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-band {
+      padding: 6rem 4rem;
+      background: var(--linen);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--espresso);
+      line-height: 1.5;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .testimonial-quote::before {
+      content: '\201C';
+      position: absolute;
+      left: 0;
+      top: -0.3rem;
+      font-size: 4rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .testimonial-meta {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--sand);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 2.8rem;
+      height: 2.8rem;
+      background: var(--sand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--walnut);
+    }
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--espresso);
+    }
+    .testimonial-location {
+      font-size: 0.75rem;
+      color: var(--taupe);
+      letter-spacing: 0.06em;
+    }
+    .stars { color: var(--gold); font-size: 0.8rem; }
+
+    .testimonial-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .value-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .value-dot {
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      background: var(--gold-light);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--walnut);
+      margin-top: 0.15rem;
+    }
+    .value-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--espresso);
+      margin-bottom: 0.2rem;
+    }
+    .value-text span {
+      font-size: 0.83rem;
+      color: var(--walnut);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 7rem 4rem;
+      background: var(--warm-white);
+      text-align: center;
+    }
+    .cta-section .section-label { justify-content: center; }
+    .cta-section .section-label::before { display: none; }
+    .cta-section .section-title { text-align: center; }
+
+    .cta-desc {
+      font-size: 1rem;
+      color: var(--taupe);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso);
+      color: var(--sand);
+      padding: 3.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--cream);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+    .footer-tagline {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-top: 0.3rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sand);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-right {
+      text-align: right;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-bottom: 0.6rem;
+    }
+    .footer-social a {
+      width: 2rem; height: 2rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: var(--sand);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--taupe);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-title   { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-btns    { animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-stats   { animation: fadeUp 0.6s 0.4s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.8rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 5rem 2rem 3rem; }
+      .hero-left::after { display: none; }
+      .hero-right { min-height: 300px; }
+      .services, .process, .portfolio, .testimonial-band, .cta-section { padding: 5rem 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .process-steps::before { display: none; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item.featured { grid-column: span 1; }
+      .testimonial-band { grid-template-columns: 1fr; gap: 3rem; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .footer-right { text-align: center; }
+      .footer-social { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="logo">curated <span>by cerrae</span></a>
-      <button class="nav-toggle" aria-label="open menu" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="services.html">services</a></li>
-        <li><a href="portfolio.html">portfolio</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="contact.html" class="nav-cta">book a consultation</a></li>
-      </ul>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">curated by cerrae</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book a Consultation</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">professional organizer · charlotte, nc</p>
-      <h1>a space for <em>everything</em>,<br>everything in its space</h1>
-      <p class="hero-sub">Transforming homes and offices into calm, functional spaces that reflect the way you actually live and work.</p>
-      <div class="hero-btns">
-        <a href="contact.html" class="btn-primary">book a free consultation</a>
-        <a href="portfolio.html" class="btn-outline">view my work</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Closet Transformations · Charlotte, NC</p>
+    <h1 class="hero-title">Your dream<br><em>closet,</em><br>finally real.</h1>
+    <p class="hero-sub">Curated by Cerrae turns chaotic, overcrowded closets into calm, beautifully organized spaces — built around the way you actually live and get dressed.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Book a Free Consult</a>
+      <a href="#portfolio" class="btn-secondary">See the Work</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">20+</span>
+        <span class="stat-label">Closets transformed</span>
       </div>
-    </div>
-  </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat">
-      <span class="stat-num">2+</span>
-      <span class="stat-label">projects completed</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">5★</span>
-      <span class="stat-label">client satisfaction</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">100%</span>
-      <span class="stat-label">spaces transformed</span>
+      <div>
+        <span class="stat-num">5★</span>
+        <span class="stat-label">Client satisfaction</span>
+      </div>
+      <div>
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Custom systems</span>
+      </div>
     </div>
   </div>
-
-  <!-- SERVICES PREVIEW -->
-  <section class="section">
-    <div class="container">
-      <p class="section-label">what i offer</p>
-      <h2 class="section-title">services</h2>
-      <p class="section-sub">Every space is different. Every session is tailored to you.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">⌂</div>
-          <h3>home organization</h3>
-          <p>Kitchens, closets, pantries, garages — full declutter and organize sessions designed around your real life.</p>
-          <span class="price">from $150</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">◻</div>
-          <h3>office & workspace</h3>
-          <p>Clear the clutter and build systems that keep your workflow smooth and your mind clear.</p>
-          <span class="price">from $125</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">↗</div>
-          <h3>move-in setup</h3>
-          <p>Unpack and set up your new space with intentional, lasting systems from day one.</p>
-          <span class="price">from $200</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">↺</div>
-          <h3>maintenance sessions</h3>
-          <p>Periodic check-ins to keep your organized spaces working beautifully as life evolves.</p>
-          <span class="price">from $75/hr</span>
-        </div>
-      </div>
-      <div class="section-cta">
-        <a href="services.html" class="btn-outline">see all services & pricing</a>
-      </div>
+  <div class="hero-right">
+    <!-- Replace this div with an <img> tag pointing to your best before/after closet photo -->
+    <div class="photo-hint">
+      <span class="icon">🖼</span>
+      Add your hero closet photo here
     </div>
-  </section>
+    <div class="hero-img-label">Before &amp; After · Charlotte, NC</div>
+  </div>
+</section>
 
-  <!-- PORTFOLIO PREVIEW -->
-  <section class="section section-alt">
-    <div class="container">
-      <p class="section-label">before & after</p>
-      <h2 class="section-title">portfolio</h2>
-      <p class="section-sub">Real spaces. Real results.</p>
-      <div class="portfolio-grid">
-        <div class="portfolio-item portfolio-large">
-          <div class="portfolio-placeholder">
-            <span class="port-label">pantry transformation</span>
-            <p class="port-hint">add your photo here</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-placeholder">
-            <span class="port-label">closet</span>
-            <p class="port-hint">add your photo here</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-placeholder">
-            <span class="port-label">kitchen</span>
-            <p class="port-hint">add your photo here</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <div class="portfolio-placeholder">
-            <span class="port-label">office</span>
-            <p class="port-hint">add your photo here</p>
-          </div>
-        </div>
-      </div>
-      <div class="section-cta">
-        <a href="portfolio.html" class="btn-outline">view full portfolio</a>
-      </div>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-label">What I offer</p>
+  <h2 class="section-title">Closet services,<br>tailored to you</h2>
+  <p class="section-sub">Every closet and every client is different. Each session is designed around your space, your wardrobe, and your daily routine.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">👗</span>
+      <h3 class="service-name">Full Closet Overhaul</h3>
+      <p class="service-desc">A complete top-to-bottom transformation — we declutter, edit your wardrobe together, then build a system that makes getting dressed effortless every single morning.</p>
+      <span class="service-price">Starting from $175</span>
     </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section">
-    <div class="container">
-      <p class="section-label">how it works</p>
-      <h2 class="section-title">the process</h2>
-      <p class="section-sub">Simple, stress-free from start to finish.</p>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="process-num">01</div>
-          <h3>consultation</h3>
-          <p>We chat about your space, goals, and vision — free of charge.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">02</div>
-          <h3>plan</h3>
-          <p>I create a custom organizing strategy tailored to your needs and lifestyle.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">03</div>
-          <h3>transform</h3>
-          <p>We work together to sort, edit, and organize your space.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num">04</div>
-          <h3>maintain</h3>
-          <p>I leave you with simple systems that actually last.</p>
-        </div>
-      </div>
+    <div class="service-card">
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Walk-In Closet Design</h3>
+      <p class="service-desc">Maximize every inch of your walk-in with intentional zones for clothes, shoes, bags, and accessories — all beautifully arranged and easy to maintain.</p>
+      <span class="service-price">Starting from $225</span>
     </div>
-  </section>
+    <div class="service-card">
+      <span class="service-icon">📦</span>
+      <h3 class="service-name">Reach-In Refresh</h3>
+      <p class="service-desc">Small space, big impact. I'll transform your reach-in or wardrobe closet into an organized, functional system — no square footage wasted.</p>
+      <span class="service-price">Starting from $125</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">👟</span>
+      <h3 class="service-name">Shoe & Accessory Edit</h3>
+      <p class="service-desc">From a tangled shoe pile to a curated display — I'll organize your shoes, bags, belts, and jewelry so you can actually see and use everything you own.</p>
+      <span class="service-price">Starting from $95</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <h3 class="service-name">Move-In Closet Setup</h3>
+      <p class="service-desc">Moving into a new home? Let's set your closet up right from day one — with smart, lasting systems before the chaos of unpacking sets in.</p>
+      <span class="service-price">Starting from $200</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">↺</span>
+      <h3 class="service-name">Seasonal Refresh</h3>
+      <p class="service-desc">Twice-yearly sessions to rotate your wardrobe, purge what no longer serves you, and keep your closet feeling fresh as your style and seasons change.</p>
+      <span class="service-price">Starting from $75/hr</span>
+    </div>
+  </div>
+</section>
 
-  <!-- TESTIMONIAL -->
-  <section class="section section-alt">
-    <div class="container">
-      <p class="section-label">kind words</p>
-      <h2 class="section-title">client love</h2>
-      <div class="testimonial">
+<!-- PROCESS -->
+<section class="process">
+  <p class="section-label">How it works</p>
+  <h2 class="section-title">Simple from start<br>to stunning</h2>
+  <p class="section-sub" style="margin-bottom:4rem">Four steps to a closet you'll love opening every day.</p>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Consultation</h3>
+      <p class="step-desc">We chat about your closet space, wardrobe goals, lifestyle, and pain points — completely free of charge.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Custom Plan</h3>
+      <p class="step-desc">I design a tailored closet strategy around your specific space, wardrobe size, and daily routine.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Transform</h3>
+      <p class="step-desc">We work together (or I handle it solo) to declutter, organize, and install your new system.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Maintain</h3>
+      <p class="step-desc">I leave you with simple habits and systems designed to keep your closet beautiful for the long haul.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <p class="section-label">Before &amp; After</p>
+  <h2 class="section-title">Real closets.<br>Real results.</h2>
+  <p class="section-sub" style="margin-bottom:3rem">Add your own before & after photos to these slots to showcase your work.</p>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item featured">
+      <!-- Replace with <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover" /> -->
+      <div class="portfolio-placeholder">
+        <span class="icon">📸</span>
+        Featured closet transformation
+      </div>
+      <div class="portfolio-item-label">Walk-in · Full Overhaul</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><span class="icon">📸</span>Add photo</div>
+      <div class="portfolio-item-label">Reach-in Refresh</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><span class="icon">📸</span>Add photo</div>
+      <div class="portfolio-item-label">Shoe &amp; Accessory Edit</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><span class="icon">📸</span>Add photo</div>
+      <div class="portfolio-item-label">Master Walk-In</div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><span class="icon">📸</span>Add photo</div>
+      <div class="portfolio-item-label">Kids' Closet</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-band">
+  <div>
+    <blockquote class="testimonial-quote">
+      Cerrae completely transformed my walk-in. I didn't realize how much stress my messy closet was causing me until I opened it and felt calm for the first time.
+    </blockquote>
+    <div class="testimonial-meta">
+      <div class="testimonial-avatar">JM</div>
+      <div>
         <div class="stars">★★★★★</div>
-        <blockquote>"Cerrae completely transformed my pantry. I didn't think it was possible to feel this calm walking into my own kitchen. She has such a gift for knowing what goes where."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">JM</div>
-          <div>
-            <p class="author-name">Jamie M.</p>
-            <p class="author-detail">Charlotte, NC · pantry + kitchen</p>
-          </div>
-        </div>
+        <div class="testimonial-name">Jamie M.</div>
+        <div class="testimonial-location">Charlotte, NC · Walk-in Overhaul</div>
       </div>
     </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>ready to reclaim your space?</h2>
-      <p>Book a free 15-minute consultation and let's talk about what's possible in your home.</p>
-      <a href="contact.html" class="btn-warm">book your free call</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-logo">curated by cerrae</p>
-      <ul class="footer-links">
-        <li><a href="services.html">services</a></li>
-        <li><a href="portfolio.html">portfolio</a></li>
-        <li><a href="about.html">about</a></li>
-        <li><a href="contact.html">contact</a></li>
-      </ul>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram">ig</a>
-        <a href="#" aria-label="TikTok">tt</a>
-        <a href="#" aria-label="Pinterest">pt</a>
+  </div>
+  <div class="testimonial-right">
+    <div class="value-item">
+      <div class="value-dot">✓</div>
+      <div class="value-text">
+        <strong>100% customized to you</strong>
+        <span>No cookie-cutter systems — every solution is built around your wardrobe, space, and habits.</span>
       </div>
     </div>
-    <p class="footer-copy">© 2025 Curated by Cerrae · Charlotte, NC</p>
-  </footer>
+    <div class="value-item">
+      <div class="value-dot">✓</div>
+      <div class="value-text">
+        <strong>Judgment-free process</strong>
+        <span>I'm here to help, not judge. Your closet is your space and we'll make it work for your real life.</span>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-dot">✓</div>
+      <div class="value-text">
+        <strong>Systems that actually last</strong>
+        <span>I don't just tidy up — I build habits and structures that keep your closet organized long after I'm gone.</span>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-dot">✓</div>
+      <div class="value-text">
+        <strong>Local to Charlotte, NC</strong>
+        <span>Serving Charlotte and surrounding areas with in-home closet transformation sessions.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script src="main.js"></script>
+<!-- CTA -->
+<section class="cta-section">
+  <p class="section-label">Ready to start?</p>
+  <h2 class="section-title">Let's transform<br>your closet.</h2>
+  <p class="cta-desc">Book a free 15-minute consultation and let's talk about what's possible in your space. No obligation, no pressure — just a conversation about your closet goals.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-primary">Book Your Free Call</a>
+    <a href="#services" class="btn-secondary">Explore Services</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">curated by cerrae</div>
+    <div class="footer-tagline">Closet Transformations · Charlotte, NC</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-right">
+    <div class="footer-social">
+      <a href="#">ig</a>
+      <a href="#">tt</a>
+      <a href="#">pt</a>
+    </div>
+    <div class="footer-copy">© 2025 Curated by Cerrae · Charlotte, NC</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
 </body>
 </html>
